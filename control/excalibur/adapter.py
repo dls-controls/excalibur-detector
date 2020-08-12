@@ -52,7 +52,15 @@ class ExcaliburAdapter(ApiAdapter):
                 if ExcaliburAdapter.use_raw_detector:
                     self.detector = ExcaliburDetector(fems)
                 else:
-                    self.detector = HLExcaliburDetector(fems)
+                    simulated = False
+                    if 'simulated' in self.options:
+                        try:
+                            if self.options['simulated'] == 'True':
+                                simulated = True
+                                logging.info("Excalibur detector has been set to simulation mode")
+                        except Exception as e:
+                            logging.error('Failed to parse simulated flag from options: {}'.format(e))
+                    self.detector = HLExcaliburDetector(fems, simulated)
                 logging.debug('ExcaliburAdapter loaded')
                 
                 if 'powercard_fem_idx' in self.options:

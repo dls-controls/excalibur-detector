@@ -206,7 +206,7 @@ merged_cmdclass.update({
     })
 
 # Define the required odin-control package version
-required_odin_version='0.3.1'
+required_odin_version='0.9.0'
 
 # Define installation requirements based on odin version 
 install_requires = [
