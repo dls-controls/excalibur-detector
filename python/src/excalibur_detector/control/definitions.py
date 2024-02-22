@@ -14,6 +14,12 @@ class ExcaliburDefinitions(object):
 
     FEM_DEFAULT_CHIP_IDS = [1, 2, 3, 4, 5, 6, 7, 8]
 
+    FEM_DAC_TARGET_VOLTAGES = {'gnd': 0.65, 'fbk': 0.9, 'cas': 0.85}
+    FEM_DAC_VOLTAGE_THRESHOLD = 0.01
+
+    # From page 23 Medipix III manual v19
+    FEM_DAC_SENSE_CODES = {'gnd': 20, 'fbk': 22, 'cas' : 23}
+
     FEM_PIXELS_PER_CHIP = X_PIXELS_PER_CHIP * Y_PIXELS_PER_CHIP
 
     FEM_TRIGMODE_INTERNAL = 0
